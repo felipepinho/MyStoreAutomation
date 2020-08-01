@@ -10,18 +10,16 @@ namespace MyStoreAutomation.Config
     public class Driver
     {
         public static IWebDriver WebDriver;
-        private static readonly string baseUrl = "http://automationpractice.com/index.php";
+        public static readonly string baseUrl = "http://automationpractice.com/index.php";
 
-        #region ENUM Browser 
         public enum Browser
         {
             CHROME_MOBILE,
             CHROME_DESKTOP,
             CHROME_HEADLESS
         }
-        #endregion
 
-        public static void Initialize(Browser browser)
+        public static void StartBrowser(Browser browser)
         {
             try
             {
@@ -62,9 +60,8 @@ namespace MyStoreAutomation.Config
 
                 WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(90);
                 Console.WriteLine(string.Format("[{0}] - Browser [{1}] started", DateTime.Now.ToString("HH:mm:ss.fff"), browser));
-                WebDriver.Url = baseUrl;
+                WebDriver.Navigate().GoToUrl(baseUrl);
                 Console.WriteLine(string.Format("[{0}] - URL [{1}] opened", DateTime.Now.ToString("HH:mm:ss.fff"), WebDriver.Url));
-
             }
             catch (Exception e)
             {
@@ -73,6 +70,9 @@ namespace MyStoreAutomation.Config
             }
         }
 
-        public static void Finalizar() => WebDriver.Quit();
+        public static void StopBrowser() {
+            WebDriver.Quit();
+            WebDriver = null;
+        } 
     }
 }
