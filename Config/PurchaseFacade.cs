@@ -1,4 +1,5 @@
-﻿using TestProject.SDK.PageObjects;
+﻿using MyStoreAutomation.Pages.ProductPage;
+using TestProject.SDK.PageObjects;
 
 namespace MyStoreAutomation.Config
 {
@@ -9,6 +10,13 @@ namespace MyStoreAutomation.Config
             var page = new T();
             PageFactory.InitElements(Driver.WebDriver, page);
             return page;
+        }
+
+        private ProductPage ProductPage => GetPages<ProductPage>();
+
+        public void PurchaseProduct(string product, string productPrice)
+        {
+            ProductPage.Navigate(product);
         }
     }
 }

@@ -6,11 +6,11 @@ namespace MyStoreAutomation.Pages.ProductPage
 {
     public class ProductPage : ProductPageMap
     {
-        public void Navigate(string item = "")
+        public void Navigate(string product = "")
         {
             try
             {
-                WebDriver.Navigate().GoToUrl(string.Concat(baseUrl, item));
+                WebDriver.Navigate().GoToUrl(string.Concat(baseUrl, product));
                 Console.WriteLine(string.Format("[{0}] - Product page opened.", DateTime.Now.ToString("HH:mm:ss.fff")));
             }
             catch (Exception e)
