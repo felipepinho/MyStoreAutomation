@@ -59,9 +59,9 @@ namespace MyStoreAutomation.Config
                 }
 
                 WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(90);
-                Console.WriteLine(string.Format("[{0}] - Browser [{1}] started", DateTime.Now.ToString("HH:mm:ss.fff"), browser));
+                Console.WriteLine(string.Format("[{0}] - Browser [{1}] started.", DateTime.Now.ToString("HH:mm:ss.fff"), browser));
                 WebDriver.Navigate().GoToUrl(baseUrl);
-                Console.WriteLine(string.Format("[{0}] - URL [{1}] opened", DateTime.Now.ToString("HH:mm:ss.fff"), WebDriver.Url));
+                Console.WriteLine(string.Format("[{0}] - URL [{1}] opened.", DateTime.Now.ToString("HH:mm:ss.fff"), WebDriver.Url));
             }
             catch (Exception e)
             {

@@ -30,7 +30,7 @@ namespace MyStoreAutomation.Pages.LoginPage
         {
             get
             {
-                string element = "//span[contains(text(),'Sign in')]";
+                string element = "/html[1]/body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/form[1]/div[1]/p[2]/button[1]/span[1]";
                 Helper.WaitElement(By.XPath(element), 10);
                 return WebDriver.FindElement(By.XPath(element));
             }

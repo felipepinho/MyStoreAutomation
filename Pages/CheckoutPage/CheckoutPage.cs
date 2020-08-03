@@ -10,10 +10,9 @@ namespace MyStoreAutomation.Pages.CheckoutPage
         {
             try
             {
-                var wait = new WebDriverWait(WebDriver, Helper.DefaultTimeout);
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(BtnProceedToCheckout));
+                Helper.WaitElementClickable(BtnProceedToCheckout);
                 BtnProceedToCheckout.Click();
-                Console.WriteLine(string.Format("[{0}] - Proceeded to login.", DateTime.Now.ToString("HH:mm:ss.fff")));
+                Helper.ShowSuccess("Proceeded to login.");
             }
             catch (Exception e)
             {

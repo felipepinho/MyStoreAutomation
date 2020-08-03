@@ -2,9 +2,9 @@
 using OpenQA.Selenium.Support.UI;
 using System;
 
-namespace MyStoreAutomation.Pages.CartPage
+namespace MyStoreAutomation.Pages.AdressPage
 {
-    public class CartPage : CartPageMap
+    public class AdressPage : AdressPageMap
     {
         public void ProceedToCheckoutButton()
         {

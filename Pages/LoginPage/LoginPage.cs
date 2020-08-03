@@ -11,10 +11,9 @@ namespace MyStoreAutomation.Pages.LoginPage
         {
             try
             {
-                var wait = new WebDriverWait(WebDriver, Helper.DefaultTimeout);
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(TxtEmail));
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(TxtPassword));
+                Helper.WaitElementClickable(TxtEmail);
                 TxtEmail.SendKeys(clientInfo.Email);
+                Helper.WaitElementClickable(TxtPassword);
                 TxtPassword.SendKeys(clientInfo.Password);
             }
             catch (Exception e)
@@ -28,10 +27,9 @@ namespace MyStoreAutomation.Pages.LoginPage
         {
             try
             {
-                var wait = new WebDriverWait(WebDriver, Helper.DefaultTimeout);
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(BtnSignIn));
+                Helper.WaitElementClickable(BtnSignIn);
                 BtnSignIn.Click();
-                Console.WriteLine(string.Format("[{0}] - Login has been successfully.", DateTime.Now.ToString("HH:mm:ss.fff")));
+                Helper.ShowSuccess("Login has been successfully.");
             }
             catch (Exception e)
             {

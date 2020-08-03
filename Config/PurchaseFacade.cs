@@ -1,4 +1,5 @@
 ﻿using MyStoreAutomation.Data;
+using MyStoreAutomation.Pages.AdressPage;
 using MyStoreAutomation.Pages.CartPage;
 using MyStoreAutomation.Pages.CheckoutPage;
 using MyStoreAutomation.Pages.LoginPage;
@@ -20,6 +21,7 @@ namespace MyStoreAutomation.Config
         private CartPage CartPage => GetPages<CartPage>();
         private CheckoutPage CheckoutPage => GetPages<CheckoutPage>();
         private LoginPage LoginPage => GetPages<LoginPage>();
+        private AdressPage AdressPage => GetPages<AdressPage>();
 
         public void PurchaseProduct(string product, string productPrice, ClientInfo clientInfo)
         {
@@ -29,6 +31,7 @@ namespace MyStoreAutomation.Config
             CheckoutPage.ProceedToCheckoutButton();
             LoginPage.ClientInput(clientInfo);
             LoginPage.SignInButton();
+            AdressPage.ProceedToCheckoutButton();
         }
     }
 }

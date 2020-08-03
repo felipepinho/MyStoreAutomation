@@ -6,12 +6,12 @@ namespace MyStoreAutomation.Pages.ProductPage
 {
     public class ProductPage : ProductPageMap
     {
-        public void Navigate(string product = "")
+        public void Navigate(string product)
         {
             try
             {
                 WebDriver.Navigate().GoToUrl(string.Concat(baseUrl, product));
-                Console.WriteLine(string.Format("[{0}] - Product page opened.", DateTime.Now.ToString("HH:mm:ss.fff")));
+                Helper.ShowSuccess("Product page opened.");
             }
             catch (Exception e)
             {
@@ -24,10 +24,9 @@ namespace MyStoreAutomation.Pages.ProductPage
         {
             try
             {
-                var wait = new WebDriverWait(WebDriver, Helper.DefaultTimeout);
-                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(BtnAddToCart));
+                Helper.WaitElementClickable(BtnAddToCart);
                 BtnAddToCart.Click();
-                Console.WriteLine(string.Format("[{0}] - Product added to cart.", DateTime.Now.ToString("HH:mm:ss.fff")));
+                Helper.ShowSuccess("Product added to cart.");
             }
             catch (Exception e)
             {

@@ -15,9 +15,15 @@ namespace MyStoreAutomation.Util
         {
             string method = new System.Diagnostics.StackTrace().GetFrame(1).GetMethod().Name;
             string message = string.Format("[{0}] - The method [{1}] caused an exception: ", DateTime.Now.ToString("HH:mm:ss.fff"), method);
-            Console.WriteLine(message + exception);
+            Console.WriteLine(string.Concat(message, exception));
         }
 
+        public static void ShowSuccess(string message)
+        {
+            string log = string.Format("[{0}] - [{1}]", DateTime.Now.ToString("HH:mm:ss.fff"), message);
+            Console.WriteLine(log);
+        }
+        
         public static void InputText(this IWebElement element, string text)
         {
             element.Clear();
@@ -68,6 +74,14 @@ namespace MyStoreAutomation.Util
         {
             var wait = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(time));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(by));
+
+
         }
+        public static void WaitElementClickable(this IWebElement element)
+        {
+            var wait = new WebDriverWait(Driver.WebDriver, DefaultTimeout);
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(element));
+        }
+
     }
 }
