@@ -1,4 +1,6 @@
 ﻿using MyStoreAutomation.Config;
+using MyStoreAutomation.Data;
+using MyStoreAutomation.Util;
 using NUnit.Framework;
 
 namespace MyStoreAutomation.Tests
@@ -12,12 +14,15 @@ namespace MyStoreAutomation.Tests
         }
 
         [Test]
-        [TestCase()]
-        public void Purchase_Blouse()
+        [TestCase(TestData.blouse, TestData.blousePrice, TestName = "PurchaseTest: Blouse - $27,00")]
+        public void PurchaseTest(string productUrl, string productPrice)
         {
-            var productUrl = "?id_product=2&controller=product";
-            var productPrice = "$27.00";
-            new PurchaseFacade().PurchaseProduct(productUrl, productPrice);
+            ClientInfo clientInfo = new ClientInfo()
+            {
+                Email = TestData.email,
+                Password = TestData.password
+            };
+            new PurchaseFacade().PurchaseProduct(productUrl, productPrice, clientInfo);
         }
 
         [TearDown]
