@@ -3,8 +3,8 @@
     public class TestData
     {
         #region Personal Information
-        public const string email = "felipe@teste.com.br";
-        public const string password = "felipe123";
+        public static readonly string email = Helper.GetValue("AppConfiguration:username");
+        public static readonly string password = Helper.GetValue("AppConfiguration:password");
         #endregion
 
         #region Products Information

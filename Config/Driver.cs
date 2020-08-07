@@ -12,13 +12,6 @@ namespace MyStoreAutomation.Config
         public static IWebDriver WebDriver;
         public static readonly string baseUrl = "http://automationpractice.com/index.php";
 
-        public enum Browser
-        {
-            CHROME_MOBILE,
-            CHROME_DESKTOP,
-            CHROME_HEADLESS
-        }
-
         public static void StartBrowser(Browser browser)
         {
             try

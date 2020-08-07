@@ -4,6 +4,7 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using OpenQA.Selenium.Interactions;
+using Microsoft.Extensions.Configuration;
 
 namespace MyStoreAutomation.Util
 {
@@ -16,6 +17,18 @@ namespace MyStoreAutomation.Util
             string method = new System.Diagnostics.StackTrace().GetFrame(1).GetMethod().Name;
             string message = string.Format("[{0}] - The method [{1}] caused an exception: ", DateTime.Now.ToString("HH:mm:ss.fff"), method);
             Console.WriteLine(string.Concat(message, exception));
+        }
+
+        public static string GetValue(string key)
+        {
+            var config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddEnvironmentVariables()
+                .Build();
+
+            var value = config.GetSection(key).Value;
+
+            return value;
         }
 
         public static void ShowSuccess(string message)
