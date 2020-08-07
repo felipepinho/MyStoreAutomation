@@ -14,15 +14,16 @@ namespace MyStoreAutomation.Tests
         }
 
         [Test]
-        [TestCase(TestData.blouse, TestData.blousePrice, TestName = "PurchaseTest: Blouse - $27,00")]
-        public void PurchaseTest(string productUrl, string productPrice)
+        [TestCase(TestData.blouse, TestName = "PurchaseTest: Blouse - $27,00")]
+        public void PurchaseTest(string productUrl)
         {
             ClientInfo currentClientInfo = new ClientInfo()
             {
                 Email = TestData.email,
-                Password = TestData.password
+                Password = TestData.password,
+                TypeOfPayment = TestData.type
             };
-            new PurchaseFacade().PurchaseProduct(productUrl, productPrice, currentClientInfo);
+            new PurchaseFacade().PurchaseProduct(productUrl, currentClientInfo);
         }
 
         [TearDown]

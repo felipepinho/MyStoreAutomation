@@ -5,6 +5,7 @@
         #region Personal Information
         public static readonly string email = Helper.GetValue("AppConfiguration:username");
         public static readonly string password = Helper.GetValue("AppConfiguration:password");
+        public static readonly string type = Helper.GetValue("AppConfiguration:type");
         #endregion
 
         #region Products Information

@@ -1,6 +1,5 @@
 ﻿using MyStoreAutomation.Data;
 using MyStoreAutomation.Util;
-using OpenQA.Selenium.Support.UI;
 using System;
 
 namespace MyStoreAutomation.Pages.LoginPage

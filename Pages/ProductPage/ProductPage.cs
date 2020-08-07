@@ -6,7 +6,7 @@ namespace MyStoreAutomation.Pages.ProductPage
 {
     public class ProductPage : ProductPageMap
     {
-        public void Navigate(string product)
+        public void NavigateTo(string product)
         {
             try
             {

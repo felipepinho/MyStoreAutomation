@@ -3,7 +3,9 @@ using MyStoreAutomation.Pages.AdressPage;
 using MyStoreAutomation.Pages.CartPage;
 using MyStoreAutomation.Pages.CheckoutPage;
 using MyStoreAutomation.Pages.LoginPage;
+using MyStoreAutomation.Pages.PaymentPage;
 using MyStoreAutomation.Pages.ProductPage;
+using MyStoreAutomation.Pages.ShippingPage;
 using TestProject.SDK.PageObjects;
 
 namespace MyStoreAutomation.Config
@@ -17,21 +19,26 @@ namespace MyStoreAutomation.Config
             return page;
         }
 
-        private ProductPage ProductPage => GetPages<ProductPage>();
+        private AdressPage AdressPage => GetPages<AdressPage>();
         private CartPage CartPage => GetPages<CartPage>();
         private CheckoutPage CheckoutPage => GetPages<CheckoutPage>();
         private LoginPage LoginPage => GetPages<LoginPage>();
-        private AdressPage AdressPage => GetPages<AdressPage>();
+        private PaymentPage PaymentPage => GetPages<PaymentPage>();
+        private ProductPage ProductPage => GetPages<ProductPage>();
+        private ShippingPage ShippingPage => GetPages<ShippingPage>();
 
-        public void PurchaseProduct(string product, string productPrice, ClientInfo clientInfo)
+        public void PurchaseProduct(string product, ClientInfo clientInfo)
         {
-            ProductPage.Navigate(product);
+            ProductPage.NavigateTo(product);
             ProductPage.AddToCartButton();
             CartPage.ProceedToCheckoutButton();
             CheckoutPage.ProceedToCheckoutButton();
             LoginPage.ClientInput(clientInfo);
             LoginPage.SignInButton();
             AdressPage.ProceedToCheckoutButton();
+            ShippingPage.TermsOfServiceCheck();
+            ShippingPage.ProceedToCheckoutButton();
+            PaymentPage.PaymentButton(clientInfo);
         }
     }
 }
