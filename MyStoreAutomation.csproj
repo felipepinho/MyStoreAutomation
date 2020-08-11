@@ -14,11 +14,12 @@
     <PackageReference Include="Selenium.Support" Version="3.141.0" />
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="84.0.4147.3001" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
     <PackageReference Include="TestProject.SDK" Version="0.63.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="bin\Debug\netcoreapp3.1\appsettings.json" />
+    <None Include="bin\Debug\netcoreapp3.1\config.json" />
   </ItemGroup>
 
 </Project>

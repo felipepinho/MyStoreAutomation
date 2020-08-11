@@ -3,9 +3,9 @@
     public class TestData
     {
         #region Personal Information
-        public static readonly string email = Helper.GetValue("AppConfiguration:username");
-        public static readonly string password = Helper.GetValue("AppConfiguration:password");
-        public static readonly string type = Helper.GetValue("AppConfiguration:type");
+        public static readonly string email = Helper.GetValue("username");
+        public static readonly string password = Helper.GetValue("password");
+        public static readonly string type = Helper.GetValue("type");
         #endregion
 
         #region Products Information

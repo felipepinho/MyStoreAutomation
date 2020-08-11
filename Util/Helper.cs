@@ -22,11 +22,10 @@ namespace MyStoreAutomation.Util
         public static string GetValue(string key)
         {
             var config = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddEnvironmentVariables()
+                .AddJsonFile("config.json")
                 .Build();
 
-            var value = config.GetSection(key).Value;
+            var value = config[key];
 
             return value;
         }
