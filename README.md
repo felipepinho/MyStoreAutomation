@@ -1,6 +1,5 @@
 <h1 align="center">My Store Automation </h1>
-------------
-The repository provided contains a project for testing automation of an E-Commerce.
+<p align="center">The repository provided contains a project for testing automation of an E-Commerce.</p>
 
 ## The tests are supposed to:
 - Select a product on the homepage
